@@ -22,11 +22,13 @@ def create_app():
     from app.users import users_blueprint
     from app.courses import course_blueprint
     from app.slides import slides_blueprint
+    from app.sheets import sheets_blueprint
 
     app.register_blueprint(recipes_blueprint)
     app.register_blueprint(users_blueprint)
     app.register_blueprint(course_blueprint)
     app.register_blueprint(slides_blueprint)
+    app.register_blueprint(sheets_blueprint)
 
     extentions(app)
     #logging(app)
@@ -88,18 +90,12 @@ def helper_cli(app):
         db.session.commit()
         app.logger.info('Dodano testowych userow')
 
-        course1 = Course(name='Kurs Pythona', description='Podstawy programowania w Pythonie')
-        course2 = Course(name='Kurs JavaScript', description='Nauka programowania w JavaScript')
-        course3 = Course(name='Kurs html', description='Nauka programowania w HTML')
-        course4 = Course(name='Kurs C++', description='Nauka programowania w C++')
+        course1 = Course(name='Matematyka 1 klasa liceum', description='Matematyka dla 1 klasy liceum z rozszerzeniem')
         db.session.add(course1)
-        db.session.add(course2)
-        db.session.add(course3)
-        db.session.add(course4)
         db.session.commit()
         app.logger.info('Dodano testowe kursy')
 
-        lesson1 = Lessons(name='1.1 - Dodawanie', description='Lekcja dodawania', course_id=course1.id, first_slide=0, last_slide=3)
+        lesson1 = Lessons(name='1.1 - Wzory skróconego mnożenia', description='Proste i intuicyjne wzory skróconego mnożenia', course_id=course1.id, first_slide=0, last_slide=3)
         lesson2 = Lessons(name='1.2 - Odejmowanie', description='Lekcja odejmowania', course_id=course1.id, first_slide=4, last_slide=7)
         lesson3 = Lessons(name='1.3 - Mnożenie', description='Lekcja mnożenia', course_id=course1.id, first_slide=8, last_slide=10)
         db.session.add(lesson1)
@@ -109,11 +105,7 @@ def helper_cli(app):
         app.logger.info('Dodano testowe lekcje do kursu 1')
 
         user_course1 = User_Course(user_id=user1.id, course_id=course1.id)
-        user_course2 = User_Course(user_id=user1.id, course_id=course2.id)
-        user_course3 = User_Course(user_id=user2.id, course_id=course1.id)
         db.session.add(user_course1)
-        db.session.add(user_course2)
-        db.session.add(user_course3)
         db.session.commit()
         app.logger.info('polaczono kursy z uzytkownikami')
 
