@@ -90,8 +90,10 @@
             <div class="progress-bar progress-bar-custom" id="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
     </div>
-    <a id="closeLessonBtn" class="btn-close" title="Close Lesson" aria-label="Close Lesson" href="{{ url_for('users.mainPage') }}"></a>
-    <span id="result_text"></span>
+    <a id="closeLessonBtn" class="btn-close" title="Close Lesson" aria-label="Close Lesson" onclick="history.back()"></a>
+    <div id="result_container">
+        <span id="result_text"></span>
+    </div>
     <a class="btn btn-primary btn-lg px-4 me-md-2" type="button" id="next" href="#">Dalej</a>
 </body>
 </html>
