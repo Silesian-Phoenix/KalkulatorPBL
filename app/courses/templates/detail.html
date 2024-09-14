@@ -1,39 +1,41 @@
 {% extends "base.html" %}
 {% block content %}
 <main>
-    <h2>Nazwa kursu: {{ course_info.name }}</h2>
-    <h2>Opis kursu: {{ course_info.description }}</h2>
-    {% if course_percent == 100 %}
-        <h2>Procent kursu: {{ course_percent }}%</h2>
-    {% elif course_percent %}
-        <h2>Procent kursu: {{ course_percent }}%</h2>
-        <a class="btn btn-light" role="button" href="{{ url_for('courses.continue_lesson') }}">
-            Kontynuuj kurs
-        </a>
-    {% else %}
-        <a class="btn btn-light" role="button" href="{{ url_for('courses.course', course_id=course_info.id, lesson_id=1) }}">
-            Rozpoczni kurs
-        </a>
-    {% endif %}
-
-    {% for lesson in lesson_info %}
-    	<div class="col">
-            <!-- Kafel Bootstrap -->
-            <a href="#" class="card tile text-decoration-none text-dark" onclick="checkLesson('{{ lesson.id }}', event)">
-                <!-- Obrazek -->
-                <!-- <img src="https://via.placeholder.com/100" class="card-img-top" alt="Obrazek"> -->
-                <div class="card-body">
-                    <!-- Opis -->
-                    <h5 class="card-title">{{ lesson.name }}</h5>
-                    <p class="card-text">{{ lesson.description }}</p>
-                </div>
+    <div class="container">
+        <h2>Nazwa kursu: {{ course_info.name }}</h2>
+        <h2>Opis kursu: {{ course_info.description }}</h2>
+        {% if course_percent == 100 %}
+            <h2>Procent kursu: {{ course_percent }}%</h2>
+        {% elif course_percent %}
+            <h2>Procent kursu: {{ course_percent }}%</h2>
+            <a class="btn btn-light" role="button" href="{{ url_for('courses.continue_lesson') }}">
+                Kontynuuj kurs
             </a>
+        {% else %}
+            <a class="btn btn-light" role="button" href="{{ url_for('courses.course', course_id=course_info.id, lesson_id=1) }}">
+                Rozpocznij kurs
+            </a>
+        {% endif %}
+
+        {% for lesson in lesson_info %}
+            <div class="col">
+                <!-- Kafel Bootstrap -->
+                <a href="#" class="card tile text-decoration-none text-dark" onclick="checkLesson('{{ lesson.id }}', event)">
+                    <!-- Obrazek -->
+                    <!-- <img src="https://via.placeholder.com/100" class="card-img-top" alt="Obrazek"> -->
+                    <div class="card-body">
+                        <!-- Opis -->
+                        <h5 class="card-title">{{ lesson.name }}</h5>
+                        <p class="card-text">{{ lesson.description }}</p>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+        <div id="popupBlockOverlay" class="popup-block-overlay"></div>
+        <div id="popup-block" class="popup-block">
+            <p>Aby uruchomić tą lekcje zrób poprzednią.</p>
+            <button class="close-popup-block-btn" onclick="closePopupBlock()">OK</button>
         </div>
-    {% endfor %}
-    <div id="popupBlockOverlay" class="popup-block-overlay"></div>
-    <div id="popup-block" class="popup-block">
-        <p>Aby uruchomić tą lekcje zrób poprzednią.</p>
-        <button class="close-popup-block-btn" onclick="closePopupBlock()">OK</button>
     </div>
     <style>
         .popup-block {
@@ -98,7 +100,5 @@
             .catch(error => console.error('Error:', error));
         }
     </script>
-
-</div>
 </main>
 {% endblock %}
