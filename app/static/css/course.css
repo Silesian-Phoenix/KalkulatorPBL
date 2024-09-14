@@ -10,6 +10,7 @@ body {
 }
 
 .progress-container {
+    z-index: 2000;
     background-color: #e0e0e0;
     border-radius: 25px;
     overflow: hidden;
@@ -61,4 +62,13 @@ body {
 #openPopupBtn:hover {
     background-color: #b6bccf;
     transform: translateY(-2px);
+}
+
+#result_container {
+    width: 70%;
+}
+.result_item {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-size: 30px;
 }

@@ -20,11 +20,11 @@ def slide():
     user_slide_number = user_course_info.slideNumber
 
     if user_slide_number > lesson_info.last_slide:
-        rendered_html = render_template('end.html')
+        rendered_html = "<div style='font-size: 26px; margin-top: 20px; margin-bottom: 20px;'>" + render_template('end.html')+"</div>"
         return jsonify(result=rendered_html, percent=100)
     else:
         file_name = str(int(course_id) - 1) + '/' + str(user_slide_number) + '.html'
-        rendered_html = render_template(file_name)
+        rendered_html = "<div class='card' style='font-size: 26px; margin-top: 20px; margin-bottom: 20px;'><div class='card-body'>" + render_template(file_name)+"</div></div>"
         user_course_info.slideNumber += 1
         db.session.commit()
 
@@ -59,9 +59,9 @@ def all_slides():
     html_content = ""
     for i in range(first_slide, min(actual_slide, last_slide+1)):
         file_name = str(int(course_id) - 1) + '/' + str(i) + '.html'
-        rendered_html = render_template(file_name)
+        rendered_html = "<div class='card' style='font-size: 26px; margin-top: 20px; margin-bottom: 20px;'><div class='card-body'>" + render_template(file_name)+"</div></div>"
         html_content += rendered_html
     if int(actual_slide) >= int(lesson_info.last_slide) + 1:
-        rendered_html = render_template('end.html')
+        rendered_html = "<div style='font-size: 26px; margin-top: 20px; margin-bottom: 20px;'>" + render_template('end.html')+"</div>"
         html_content += rendered_html
     return jsonify(result=html_content, percent=percent)
