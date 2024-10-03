@@ -7,7 +7,7 @@
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
 
     <!-- Site descriptions Tags -->
-    <title>Silesian Phoenix</title>
+    <title>MathSolver</title>
     <meta name="description" content="#">
     <meta name="keywords" content="#">
     <meta name="author" content="Tomasz Byrka">
@@ -49,7 +49,7 @@
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
 
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                <li><a class="nav-link px-2 text-white" href="{{ url_for('users.mainPage') }}">Logo</a></li>
+                <li><a class="nav-link px-2 text-white" href="{{ url_for('recipes.index') }}">Logo</a></li>
             </ul>
 
             <div class="text-end">
@@ -65,6 +65,9 @@
                     </a>
                     <a class="btn btn-outline-light me-2" href="{{ url_for('users.profile') }}" role="button">
                         Profil
+                    </a>
+                    <a class="btn btn-danger" href="{{ url_for('users.logout') }}" role="button">
+                        Wyloguj
                     </a>
                 {% else %}
                 <a class="btn btn-outline-light me-2" href="{{ url_for('users.login') }}" role="button">
@@ -98,7 +101,7 @@
 <link href="{{ url_for('static', filename='css/popup.css') }}" rel="stylesheet">
 <div id="popup" class="popup card">
     <div class="card-header popup-header d-flex justify-content-between align-items-center">
-        <h5 class="card-title mb-0">Calculator</h5>
+        <h5 class="card-title mb-0">Kalkulator</h5>
         <button id="closePopupBtn" class="btn-close"></button>
     </div>
     <div class="card-body popup-body">
@@ -130,8 +133,8 @@
 </main>
 
 <footer class="footer sticky-bottom mt-auto py-3 bg-light">
-    <div class="container">
-        <span class="text-muted">Silesian Phoenix - 2023</span>
+    <div class="container text-center">
+        <span class="text-muted">MathSolver - 2023</span>
     </div>
 </footer>
 
