@@ -49,8 +49,13 @@
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
 
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                <li><a class="nav-link px-2 text-white" href="{{ url_for('users.mainPage') }}">Logo</a></li>
+                <li>
+                    <a class="nav-link px-2 text-white" href="{{ url_for('users.mainPage') }}">
+                        <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo" style="width: 70px; height: 70px"/>
+                    </a>
+                </li>
             </ul>
+
 
             <div class="text-end">
                 {% if current_user.is_authenticated %}

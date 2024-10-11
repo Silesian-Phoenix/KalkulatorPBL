@@ -2,7 +2,7 @@
 {% block content %}
 <main>
     <div class="container">
-        <h2>Nazwa kursu: {{ course_info.name }}</h2>
+        <h2 style="margin-top: 45px;">Nazwa kursu: {{ course_info.name }}</h2>
         <h2>Opis kursu: {{ course_info.description }}</h2>
         {% if course_percent == 100 %}
             <h2>Procent kursu: {{ course_percent }}%</h2>
@@ -18,7 +18,7 @@
         {% endif %}
 
         {% for lesson in lesson_info %}
-            <div class="col">
+            <div class="col" style="margin-top: 8px;">
                 <!-- Kafel Bootstrap -->
                 <a href="#" class="card tile text-decoration-none text-dark" onclick="checkLesson('{{ lesson.id }}', event)">
                     <!-- Obrazek -->
