@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
-<main>
-        <div class="h-100 p-5 custom-bg-color rounded-3 overflow-hidden">
+    <main class="container mb-5">
+        <div class="h-100 p-5 overflow-hidden">
             <h2>Twoje kursy</h2>
             <div class="row row-cols-1 row-cols-md-3 g-4 flex-nowrap" id="course-carousel">
                 {% for user_course in user_courses %}
@@ -21,7 +21,7 @@
             </div>
         </div>
 
-        <div class="h-100 p-5 custom-bg-color rounded-3 overflow-hidden">
+        <div class="h-100 p-5 overflow-hidden">
             <h2>Wszystkie kursy</h2>
             <div class="row row-cols-1 row-cols-md-3 g-4 flex-nowrap" id="course-propos-carousel">
                 {% for one_course in all_courses %}
@@ -29,7 +29,7 @@
                         <!-- Kafel Bootstrap -->
                         <a href="{{ url_for('courses.detail', course_id=one_course.id) }}" class="card tile text-decoration-none text-dark">
                             <!-- Obrazek -->
-                            <img src="https://via.placeholder.com/300" class="card-img-top" alt="Obrazek">
+                            <img src="{{ url_for('static', filename='img/300x300 Placeholder.png',  _external=True) }}" class="card-img-top" alt="#">
                             <div class="card-body">
                                 <!-- Opis -->
                                 <h5 class="card-title">{{ one_course.name }}</h5>
@@ -40,7 +40,6 @@
                 {% endfor %}
             </div>
         </div>
-
-</main>
+    </main>
 {% endblock %}
 

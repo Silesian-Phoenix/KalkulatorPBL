@@ -36,69 +36,9 @@
             <p>Aby uruchomić tą lekcje zrób poprzednią.</p>
             <button class="close-popup-block-btn" onclick="closePopupBlock()">OK</button>
         </div>
-    </div>
-    <style>
-        .popup-block {
-            display: none;
-            position: fixed;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            padding: 20px;
-            background: white;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            z-index: 1000;
-        }
-
-        .popup-block-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 999;
-        }
-
-        .close-popup-block-btn {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 10px 20px;
-            background: #333;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-        }
-    </style>
-    <script>
-        function showPopupBlock() {
-            document.getElementById('popup-block').style.display = 'block';
-            document.getElementById('popupBlockOverlay').style.display = 'block';
-        }
-
-        function closePopupBlock() {
-            document.getElementById('popup-block').style.display = 'none';
-            document.getElementById('popupBlockOverlay').style.display = 'none';
-        }
-
-        function checkLesson(lessonId) {
-            fetch(`/lessons/${lessonId}`, {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.result === 'not') {
-                    showPopupBlock();
-                } else if (data.result === 'redirect') {
-                    window.location.href = data.url;
-                }
-            })
-            .catch(error => console.error('Error:', error));
-        }
-    </script>
 </main>
+{% endblock %}
+
+{% block scripting %}
+    <script src="{{ url_for('static', filename='js/detail.js') }}"></script>
 {% endblock %}

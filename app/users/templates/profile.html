@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container mb-5 background-image-kupid">
+<div class="container mb-5">
 
     <h1 class="my-2">Profil użytkownika</h1>
 
@@ -11,7 +11,7 @@
                 <h2>Konto</h2>
                 <p class="no-margin"><strong>Email:</strong> {{ current_user.email }}</p>
                 <p class="no-margin"><strong>Data utworzenia:</strong> {{ current_user.registered_on.strftime("%d.%m.%Y") }}</p>
-                <a class="btn btn-light" href="{{ url_for('users.logout') }}" role="button">
+                <a class="btn btn-light mt-3" href="{{ url_for('users.logout') }}" role="button">
                     Wyloguj
                 </a>
             </div>
