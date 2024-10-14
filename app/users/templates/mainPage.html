@@ -29,7 +29,7 @@
                         <!-- Kafel Bootstrap -->
                         <a href="{{ url_for('courses.detail', course_id=one_course.id) }}" class="card tile text-decoration-none text-dark">
                             <!-- Obrazek -->
-                            <img src="https://via.placeholder.com/300" class="card-img-top" alt="Obrazek">
+                            <img src="{{ url_for('static', filename='img/300x300 Placeholder.png',  _external=True) }}" class="card-img-top" alt="#">
                             <div class="card-body">
                                 <!-- Opis -->
                                 <h5 class="card-title">{{ one_course.name }}</h5>

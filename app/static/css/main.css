@@ -1,10 +1,10 @@
 :root {
     --spacer: 20px;
     --gutters: 24px;
-    --sp-black: #1a181b;
-    --sp-orange1: #eb5c0c;
-    --sp-orange2: #fea608;
-    --sp-white: #f5f2ed;
+    --white: #f5f2ed;
+    --ms-blue: #285474;
+    --ms-yellow: #ffdf2b;
+    --ms-white: #efefef;
 }
 
 
@@ -14,11 +14,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: var(--sp-white);
-}
-
-.text-color1, .marked {
-    color: var(--sp-orange1);
+    background-color: var(--ms-white);
 }
 
 .form-signin {
@@ -78,7 +74,7 @@ body {
 }
 
 .flash-message {
-    background: #38CFD9;
+    background: var(--ms-yellow);
     display: flex;
     justify-content: space-between;
     padding: 1rem var(--gutters);
